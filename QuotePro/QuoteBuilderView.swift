@@ -27,43 +27,31 @@ class QuoteBuilderView: UIView {
     commonInit()
   }
   
+  func setupWithQuote(quote: Quote){
+    DispatchQueue.main.async {
+      self.quoteLabel.text = quote.text
+      self.authorLabel.text = quote.author
+    }
+  }
+  
+  func setupWithPhoto(photo: Photo){
+  
+    DispatchQueue.main.async {
+      //load image
+      guard let url = URL(string: photo.urlString) else{
+      return
+      }
+      Nuke.loadImage(with: url, into: self.imageView)
+  
+    }
+  }
+  
   private func commonInit(){
     Bundle.main.loadNibNamed("QuoteBuilderView", owner: self, options: nil)
     addSubview(contentView)
     contentView.frame = self.bounds
     contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
   }
-  @IBAction func getNewQuote(_ sender: Any) {
-    NetworkManager.shared.getQuote { (quote, author, error) -> (Void) in
 
-      if let quote = quote, let author = author {
-        print("Quote \(quote) -- Author \(author)")
-        DispatchQueue.main.async {
-          self.quoteLabel.text = quote
-          self.authorLabel.text = author
-        }
-      }
-    }
-  }
 
-  @IBAction func getNewImage(_ sender: Any) {
-    
-    NetworkManager.shared.getImageURL { (urlString, error) -> (Void) in
-      
-      if let urlString = urlString {
-        print("Random image url \(urlString)")
-        DispatchQueue.main.async {
-          //load image
-          guard let url = URL(string: urlString) else{
-            return
-          }
-          Nuke.loadImage(with: url, into: self.imageView)
-
-        }
-      }
-    }
-  }
-
-  @IBAction func saveQuoteImage(_ sender: Any) {
-  }
 }

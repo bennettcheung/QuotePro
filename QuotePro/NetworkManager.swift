@@ -74,29 +74,30 @@ class NetworkManager {
     task.resume()
   }
 
-  func getQuote(completion: @escaping  (String?, String?, Error?)->(Void)){
+  func getQuote(completion: @escaping  (Quote?, Error?)->(Void)){
 
     get(toEndpoint: FORISMATIC_URL, authHeader: false) { (data, error) -> (Void) in
       guard let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: [])  as? [String: String] else {
         print("data returned is not json, or not valid")
-        completion(nil, nil, NetworkManagerAPIError.invalidJSON)
+        completion(nil, NetworkManagerAPIError.invalidJSON)
         return
       }
       
       if let json = json{
         guard let quoteText = json[self.QUOTE_TEXT_KEY] ,
           let quoteAuthor = json[self.QUOTE_AUTHOR_KEY]  else{
-            completion(nil, nil, NetworkManagerAPIError.invalidJSON)
+            completion(nil, NetworkManagerAPIError.invalidJSON)
             return
         }
-        completion(quoteText, quoteAuthor, nil)
+        let quote = Quote(text: quoteText, author: quoteAuthor)
+        completion(quote, nil)
         return
       }
       
     }
   }
   
-  func getImageURL(completion: @escaping  (String?, Error?)->(Void)){
+  func getImageURL(completion: @escaping  (Photo?, Error?)->(Void)){
     get(toEndpoint: IMGUR_URL, authHeader: true) { (data, error) -> (Void) in
       guard let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: [])  as? [String: Any] else {
         print("data returned is not json, or not valid")
@@ -122,8 +123,9 @@ class NetworkManager {
           completion(nil, NetworkManagerAPIError.invalidJSON)
           return
         }
+        let photo = Photo(urlString: link)
         
-        completion(link, nil)
+        completion(photo, nil)
         return
       }
       

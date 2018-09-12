@@ -85,32 +85,62 @@
             </objects>
             <point key="canvasLocation" x="709" y="-630"/>
         </scene>
-        <!--View Controller-->
+        <!--Add New Quote View Controller-->
         <scene sceneID="Plo-hC-3XV">
             <objects>
-                <viewController id="L5l-9u-4aF" sceneMemberID="viewController">
+                <viewController id="L5l-9u-4aF" customClass="AddNewQuoteViewController" customModule="QuotePro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rKj-Nl-tSh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VVj-pl-Kni" customClass="QuoteBuilderView" customModule="QuotePro" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="112" width="375" height="506"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcN-EI-PLy">
+                                <rect key="frame" x="282" y="74" width="77" height="30"/>
+                                <state key="normal" title="New Image"/>
+                                <connections>
+                                    <action selector="getNewImage:" destination="L5l-9u-4aF" eventType="touchUpInside" id="yYW-ha-TJ7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAt-hu-Kzi">
+                                <rect key="frame" x="325" y="626" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveQuoteImage:" destination="L5l-9u-4aF" eventType="touchUpInside" id="k5r-Ey-P9T"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6b-Xz-2L5">
+                                <rect key="frame" x="16" y="74" width="75" height="30"/>
+                                <state key="normal" title="New quote"/>
+                                <connections>
+                                    <action selector="getNewQuote:" destination="L5l-9u-4aF" eventType="touchUpInside" id="QJR-UU-7RX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="wzW-T5-jhK" firstAttribute="bottom" secondItem="VVj-pl-Kni" secondAttribute="bottom" id="5fO-Nf-uIi"/>
-                            <constraint firstItem="VVj-pl-Kni" firstAttribute="top" secondItem="wzW-T5-jhK" secondAttribute="top" id="VMO-E1-7bk"/>
-                            <constraint firstItem="VVj-pl-Kni" firstAttribute="leading" secondItem="wzW-T5-jhK" secondAttribute="leading" id="lao-EU-LgT"/>
-                            <constraint firstItem="wzW-T5-jhK" firstAttribute="trailing" secondItem="VVj-pl-Kni" secondAttribute="trailing" id="lrO-fC-D5C"/>
+                            <constraint firstItem="j6b-Xz-2L5" firstAttribute="leading" secondItem="wzW-T5-jhK" secondAttribute="leading" constant="16" id="3Jp-J9-xVo"/>
+                            <constraint firstItem="wzW-T5-jhK" firstAttribute="trailing" secondItem="tcN-EI-PLy" secondAttribute="trailing" constant="16" id="3gs-sr-9ix"/>
+                            <constraint firstItem="wzW-T5-jhK" firstAttribute="bottom" secondItem="wAt-hu-Kzi" secondAttribute="bottom" constant="11" id="6vC-EL-U67"/>
+                            <constraint firstItem="wAt-hu-Kzi" firstAttribute="top" secondItem="VVj-pl-Kni" secondAttribute="bottom" constant="8" symbolic="YES" id="Aze-Ye-5RZ"/>
+                            <constraint firstItem="VVj-pl-Kni" firstAttribute="top" secondItem="j6b-Xz-2L5" secondAttribute="bottom" constant="8" symbolic="YES" id="E6h-y1-w6V"/>
+                            <constraint firstItem="tcN-EI-PLy" firstAttribute="top" secondItem="wzW-T5-jhK" secondAttribute="top" constant="10" id="hjy-Zu-afN"/>
+                            <constraint firstItem="wzW-T5-jhK" firstAttribute="trailing" secondItem="wAt-hu-Kzi" secondAttribute="trailing" constant="16" id="j5m-Hq-mWA"/>
+                            <constraint firstAttribute="trailing" secondItem="VVj-pl-Kni" secondAttribute="trailing" id="mPd-P4-L2s"/>
+                            <constraint firstItem="VVj-pl-Kni" firstAttribute="leading" secondItem="rKj-Nl-tSh" secondAttribute="leading" id="rlr-1z-Slx"/>
+                            <constraint firstItem="j6b-Xz-2L5" firstAttribute="top" secondItem="wzW-T5-jhK" secondAttribute="top" constant="10" id="vPg-wA-33y"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wzW-T5-jhK"/>
                     </view>
+                    <connections>
+                        <outlet property="quoteBuilderView" destination="VVj-pl-Kni" id="MUY-iA-DPU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xf6-Pc-SfU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1607" y="-636"/>
+            <point key="canvasLocation" x="1605.5999999999999" y="-636.4317841079461"/>
         </scene>
     </scenes>
 </document>

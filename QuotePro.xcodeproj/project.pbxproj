@@ -10,6 +10,9 @@
 		5CF96436BD73B8C6CA20455C /* Pods_QuoteProUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 030B222767AB844A6DC531E8 /* Pods_QuoteProUITests.framework */; };
 		666AFB050AAB6A5903123C32 /* Pods_QuoteProTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 613231210323DB7F8F349659 /* Pods_QuoteProTests.framework */; };
 		8AC9FF72BAD59590E370AD35 /* Pods_QuotePro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569200A45E31A9630C2C6B48 /* Pods_QuotePro.framework */; };
+		916EF9402149B56A008A0FC1 /* AddNewQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916EF93F2149B56A008A0FC1 /* AddNewQuoteViewController.swift */; };
+		916EF9422149B6AA008A0FC1 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916EF9412149B6AA008A0FC1 /* Quote.swift */; };
+		916EF9442149B6B2008A0FC1 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916EF9432149B6B2008A0FC1 /* Photo.swift */; };
 		916F373821496D3E00CBBC29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F373721496D3E00CBBC29 /* AppDelegate.swift */; };
 		916F373A21496D3E00CBBC29 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F373921496D3E00CBBC29 /* MasterViewController.swift */; };
 		916F373F21496D3E00CBBC29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 916F373D21496D3E00CBBC29 /* Main.storyboard */; };
@@ -46,6 +49,9 @@
 		569200A45E31A9630C2C6B48 /* Pods_QuotePro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuotePro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		613231210323DB7F8F349659 /* Pods_QuoteProTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuoteProTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68964917229A56925EB6205A /* Pods-QuoteProUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuoteProUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuoteProUITests/Pods-QuoteProUITests.release.xcconfig"; sourceTree = "<group>"; };
+		916EF93F2149B56A008A0FC1 /* AddNewQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewQuoteViewController.swift; sourceTree = "<group>"; };
+		916EF9412149B6AA008A0FC1 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		916EF9432149B6B2008A0FC1 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		916F373421496D3E00CBBC29 /* QuotePro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuotePro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		916F373721496D3E00CBBC29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		916F373921496D3E00CBBC29 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -134,11 +140,14 @@
 				916F373921496D3E00CBBC29 /* MasterViewController.swift */,
 				916F373D21496D3E00CBBC29 /* Main.storyboard */,
 				916F374021496D4000CBBC29 /* Assets.xcassets */,
+				916EF93F2149B56A008A0FC1 /* AddNewQuoteViewController.swift */,
 				916F374221496D4000CBBC29 /* LaunchScreen.storyboard */,
 				916F374521496D4000CBBC29 /* Info.plist */,
 				916F376721496DA100CBBC29 /* NetworkManager.swift */,
 				916F37692149A4DD00CBBC29 /* QuoteBuilderView.xib */,
 				916F376B2149A67C00CBBC29 /* QuoteBuilderView.swift */,
+				916EF9412149B6AA008A0FC1 /* Quote.swift */,
+				916EF9432149B6B2008A0FC1 /* Photo.swift */,
 			);
 			path = QuotePro;
 			sourceTree = "<group>";
@@ -311,15 +320,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-QuoteProTests-checkManifestLockResult.txt",
 			);
@@ -333,15 +338,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-QuoteProUITests-checkManifestLockResult.txt",
 			);
@@ -355,15 +356,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-QuotePro-checkManifestLockResult.txt",
 			);
@@ -377,15 +374,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-QuotePro/Pods-QuotePro-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
 			);
@@ -401,9 +394,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				916EF9442149B6B2008A0FC1 /* Photo.swift in Sources */,
 				916F376821496DA100CBBC29 /* NetworkManager.swift in Sources */,
+				916EF9402149B56A008A0FC1 /* AddNewQuoteViewController.swift in Sources */,
 				916F376C2149A67C00CBBC29 /* QuoteBuilderView.swift in Sources */,
 				916F373A21496D3E00CBBC29 /* MasterViewController.swift in Sources */,
+				916EF9422149B6AA008A0FC1 /* Quote.swift in Sources */,
 				916F373821496D3E00CBBC29 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
