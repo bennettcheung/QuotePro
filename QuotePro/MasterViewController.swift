@@ -10,7 +10,7 @@ import UIKit
 
 class MasterViewController: UITableViewController {
 
-  var objects = [Any]()
+  var objects = [(Quote, Photo)]()
 
 
   override func viewDidLoad() {
@@ -22,7 +22,6 @@ class MasterViewController: UITableViewController {
   }
 
   override func viewWillAppear(_ animated: Bool) {
-    clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
     super.viewWillAppear(animated)
   }
 
@@ -35,7 +34,12 @@ class MasterViewController: UITableViewController {
   // MARK: - Segues
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+    if (segue.identifier == "segueToAddQuote"){
+      guard let controller = segue.destination as? AddNewQuoteViewController else{
+        return
+      }
+      controller.delegate = self
+    }
   }
 
   // MARK: - Table View
@@ -51,8 +55,9 @@ class MasterViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-    let object = objects[indexPath.row] as! NSDate
-    cell.textLabel!.text = object.description
+    let tuple = objects[indexPath.row]
+    cell.textLabel!.text = tuple.0.author
+    cell.detailTextLabel!.text = tuple.0.text
     return cell
   }
 
@@ -73,3 +78,11 @@ class MasterViewController: UITableViewController {
 
 }
 
+extension MasterViewController: AddNewQuoteViewControllerDelegate{
+  func save(quote: Quote, photo: Photo) {
+    objects.append((quote, photo))
+    DispatchQueue.main.async {
+      self.tableView.reloadData()
+    }
+  }
+}

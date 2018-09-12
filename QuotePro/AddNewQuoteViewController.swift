@@ -8,8 +8,15 @@
 
 import UIKit
 
+protocol AddNewQuoteViewControllerDelegate {
+  func save(quote: Quote, photo: Photo)
+}
+
 class AddNewQuoteViewController: UIViewController {
   @IBOutlet weak var quoteBuilderView: QuoteBuilderView!
+  var delegate: AddNewQuoteViewControllerDelegate?
+  var quote: Quote!
+  var photo: Photo!
   
   override func viewDidLoad() {
     getNewQuote(self)
@@ -23,7 +30,7 @@ class AddNewQuoteViewController: UIViewController {
       
       if let quote = quote {
         print("Quote \(quote.text) -- Author \(quote.author)")
-
+        self.quote = quote
         self.quoteBuilderView.setupWithQuote(quote: quote)
 
       }
@@ -37,6 +44,8 @@ class AddNewQuoteViewController: UIViewController {
       if let photo = photo {
         print("Random image url \(photo.urlString)")
 
+        self.photo = photo
+      
           //load image
         self.quoteBuilderView.setupWithPhoto(photo: photo)
 
@@ -46,6 +55,13 @@ class AddNewQuoteViewController: UIViewController {
   
   
   @IBAction func saveQuoteImage(_ sender: Any) {
+    if let delegate = delegate{
+      delegate.save(quote: self.quote, photo: self.photo)
+      
+    }
+    if let navController = self.navigationController {
+      navController.popViewController(animated: true)
+    }
   }
 
 }
