@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nuke
 
 class QuoteBuilderView: UIView {
 
@@ -47,12 +48,16 @@ class QuoteBuilderView: UIView {
 
   @IBAction func getNewImage(_ sender: Any) {
     
-    NetworkManager.shared.getImageURL { (link, error) -> (Void) in
+    NetworkManager.shared.getImageURL { (urlString, error) -> (Void) in
       
-      if let link = link {
-        print("Random image url \(link)")
+      if let urlString = urlString {
+        print("Random image url \(urlString)")
         DispatchQueue.main.async {
           //load image
+          guard let url = URL(string: urlString) else{
+            return
+          }
+          Nuke.loadImage(with: url, into: self.imageView)
 
         }
       }
