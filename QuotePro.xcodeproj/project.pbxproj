@@ -15,6 +15,8 @@
 		916F374F21496D4000CBBC29 /* QuoteProTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F374E21496D4000CBBC29 /* QuoteProTests.swift */; };
 		916F375A21496D4000CBBC29 /* QuoteProUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F375921496D4000CBBC29 /* QuoteProUITests.swift */; };
 		916F376821496DA100CBBC29 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F376721496DA100CBBC29 /* NetworkManager.swift */; };
+		916F376A2149A4DD00CBBC29 /* QuoteBuilderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 916F37692149A4DD00CBBC29 /* QuoteBuilderView.xib */; };
+		916F376C2149A67C00CBBC29 /* QuoteBuilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F376B2149A67C00CBBC29 /* QuoteBuilderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		916F375921496D4000CBBC29 /* QuoteProUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteProUITests.swift; sourceTree = "<group>"; };
 		916F375B21496D4000CBBC29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		916F376721496DA100CBBC29 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		916F37692149A4DD00CBBC29 /* QuoteBuilderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteBuilderView.xib; sourceTree = "<group>"; };
+		916F376B2149A67C00CBBC29 /* QuoteBuilderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteBuilderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				916F374221496D4000CBBC29 /* LaunchScreen.storyboard */,
 				916F374521496D4000CBBC29 /* Info.plist */,
 				916F376721496DA100CBBC29 /* NetworkManager.swift */,
+				916F37692149A4DD00CBBC29 /* QuoteBuilderView.xib */,
+				916F376B2149A67C00CBBC29 /* QuoteBuilderView.swift */,
 			);
 			path = QuotePro;
 			sourceTree = "<group>";
@@ -235,6 +241,7 @@
 				916F374421496D4000CBBC29 /* LaunchScreen.storyboard in Resources */,
 				916F374121496D4000CBBC29 /* Assets.xcassets in Resources */,
 				916F373F21496D3E00CBBC29 /* Main.storyboard in Resources */,
+				916F376A2149A4DD00CBBC29 /* QuoteBuilderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				916F376821496DA100CBBC29 /* NetworkManager.swift in Sources */,
+				916F376C2149A67C00CBBC29 /* QuoteBuilderView.swift in Sources */,
 				916F373A21496D3E00CBBC29 /* MasterViewController.swift in Sources */,
 				916F373821496D3E00CBBC29 /* AppDelegate.swift in Sources */,
 			);

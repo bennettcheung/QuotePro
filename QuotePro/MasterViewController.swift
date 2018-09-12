@@ -17,10 +17,6 @@ class MasterViewController: UITableViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
 
-
-    NetworkManager.shared.getQuote { (quote, author, error) -> (Void) in
-      print("Quote \(quote) -- Author \(author)")
-    }
     
     NetworkManager.shared.getImageURL { (link, error) -> (Void) in
       print("Random image url \(link)")

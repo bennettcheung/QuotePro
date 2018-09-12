@@ -92,7 +92,19 @@
                     <view key="view" contentMode="scaleToFill" id="rKj-Nl-tSh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VVj-pl-Kni" customClass="QuoteBuilderView" customModule="QuotePro" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wzW-T5-jhK" firstAttribute="bottom" secondItem="VVj-pl-Kni" secondAttribute="bottom" id="5fO-Nf-uIi"/>
+                            <constraint firstItem="VVj-pl-Kni" firstAttribute="top" secondItem="wzW-T5-jhK" secondAttribute="top" id="VMO-E1-7bk"/>
+                            <constraint firstItem="VVj-pl-Kni" firstAttribute="leading" secondItem="wzW-T5-jhK" secondAttribute="leading" id="lao-EU-LgT"/>
+                            <constraint firstItem="wzW-T5-jhK" firstAttribute="trailing" secondItem="VVj-pl-Kni" secondAttribute="trailing" id="lrO-fC-D5C"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wzW-T5-jhK"/>
                     </view>
                 </viewController>
