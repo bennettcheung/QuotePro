@@ -19,8 +19,15 @@ class AddNewQuoteViewController: UIViewController {
   var photo: Photo!
   
   override func viewDidLoad() {
-    getNewQuote(self)
-    getNewImage(self)
+    if quote != nil && photo != nil{
+      self.quoteBuilderView.setupWithQuote(quote: quote)
+      self.quoteBuilderView.setupWithPhoto(photo: photo)
+      
+    }
+    else{
+      getNewQuote(self)
+      getNewImage(self)
+    }
   }
 
   
@@ -64,4 +71,13 @@ class AddNewQuoteViewController: UIViewController {
     }
   }
 
+  @IBAction func shareQuote(_ sender: Any) {
+
+    //share image
+    if let image = quoteBuilderView.snapshot(){
+      let items = [image]
+      let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+      present(ac, animated: true)
+    }
+  }
 }

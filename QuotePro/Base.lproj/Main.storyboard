@@ -59,6 +59,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <segue destination="L5l-9u-4aF" kind="show" identifier="segueToShowDetail" id="bKT-Xf-zfc"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -112,6 +115,13 @@
                                     <action selector="getNewQuote:" destination="L5l-9u-4aF" eventType="touchUpInside" id="QJR-UU-7RX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Juw-RY-bQ1">
+                                <rect key="frame" x="33" y="626" width="40" height="30"/>
+                                <state key="normal" title="Share"/>
+                                <connections>
+                                    <action selector="shareQuote:" destination="L5l-9u-4aF" eventType="touchUpInside" id="JHK-nX-0Is"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -120,11 +130,13 @@
                             <constraint firstItem="wzW-T5-jhK" firstAttribute="bottom" secondItem="wAt-hu-Kzi" secondAttribute="bottom" constant="11" id="6vC-EL-U67"/>
                             <constraint firstItem="wAt-hu-Kzi" firstAttribute="top" secondItem="VVj-pl-Kni" secondAttribute="bottom" constant="8" symbolic="YES" id="Aze-Ye-5RZ"/>
                             <constraint firstItem="VVj-pl-Kni" firstAttribute="top" secondItem="j6b-Xz-2L5" secondAttribute="bottom" constant="8" symbolic="YES" id="E6h-y1-w6V"/>
+                            <constraint firstItem="wzW-T5-jhK" firstAttribute="bottom" secondItem="Juw-RY-bQ1" secondAttribute="bottom" constant="11" id="dgo-Z1-171"/>
                             <constraint firstItem="tcN-EI-PLy" firstAttribute="top" secondItem="wzW-T5-jhK" secondAttribute="top" constant="10" id="hjy-Zu-afN"/>
                             <constraint firstItem="wzW-T5-jhK" firstAttribute="trailing" secondItem="wAt-hu-Kzi" secondAttribute="trailing" constant="16" id="j5m-Hq-mWA"/>
                             <constraint firstAttribute="trailing" secondItem="VVj-pl-Kni" secondAttribute="trailing" id="mPd-P4-L2s"/>
                             <constraint firstItem="VVj-pl-Kni" firstAttribute="leading" secondItem="rKj-Nl-tSh" secondAttribute="leading" id="rlr-1z-Slx"/>
                             <constraint firstItem="j6b-Xz-2L5" firstAttribute="top" secondItem="wzW-T5-jhK" secondAttribute="top" constant="10" id="vPg-wA-33y"/>
+                            <constraint firstItem="Juw-RY-bQ1" firstAttribute="leading" secondItem="wzW-T5-jhK" secondAttribute="leading" constant="33" id="y3M-JF-0XJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wzW-T5-jhK"/>
                     </view>
@@ -137,4 +149,7 @@
             <point key="canvasLocation" x="1605.5999999999999" y="-636.4317841079461"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="bKT-Xf-zfc"/>
+    </inferredMetricsTieBreakers>
 </document>

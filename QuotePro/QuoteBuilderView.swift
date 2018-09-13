@@ -53,5 +53,14 @@ class QuoteBuilderView: UIView {
     contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
   }
 
+  func snapshot() -> UIImage? {
+    UIGraphicsBeginImageContext(self.bounds.size)
+    self.drawHierarchy(in: self.bounds, afterScreenUpdates: true)
+    
+    let image = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+
+    return image
+  }
 
 }

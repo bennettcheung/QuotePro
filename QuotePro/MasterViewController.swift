@@ -40,6 +40,17 @@ class MasterViewController: UITableViewController {
       }
       controller.delegate = self
     }
+    else if (segue.identifier == "segueToShowDetail"){
+      guard let controller = segue.destination as? AddNewQuoteViewController else{
+        return
+      }
+      guard let indexPath = tableView.indexPathForSelectedRow else{
+       return
+      }
+      let tuple = objects[indexPath.row]
+      controller.quote = tuple.0
+      controller.photo = tuple.1
+    }
   }
 
   // MARK: - Table View
@@ -74,7 +85,8 @@ class MasterViewController: UITableViewController {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
   }
-
+  
+  
 
 }
 
