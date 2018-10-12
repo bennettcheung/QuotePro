@@ -36,7 +36,7 @@ class AddNewQuoteViewController: UIViewController {
     NetworkManager.shared.getQuote { (quote,  error) -> (Void) in
       
       if let quote = quote {
-        print("Quote \(quote.text) -- Author \(quote.author)")
+//        print("Quote \(quote.text!) -- Author \(quote.author!)")
         self.quote = quote
         self.quoteBuilderView.setupWithQuote(quote: quote)
 

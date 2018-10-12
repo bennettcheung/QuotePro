@@ -7,8 +7,13 @@
 //
 
 import Foundation
-struct Quote{
-  var text: String
-  var author: String
+class Quote : Codable{
+  var text: String?
+  var author: String?
 
+  enum CodingKeys : String, CodingKey {
+    case text = "quoteText"
+    case author = "quoteAuthor"
+    
+  }
 }

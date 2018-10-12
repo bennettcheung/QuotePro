@@ -21,8 +21,6 @@ class NetworkManager {
   
   private let FORISMATIC_URL = "http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json"
   private let IMGUR_URL = "https://api.imgur.com/3/gallery/hOF1g"
-  private let QUOTE_TEXT_KEY = "quoteText"
-  private let QUOTE_AUTHOR_KEY = "quoteAuthor"
   private let DATA_KEY = "data"
   private let IMAGES_COUNT_KEY = "images_count"
   private let IMAGES_KEY = "images"
@@ -76,24 +74,14 @@ class NetworkManager {
 
   func getQuote(completion: @escaping  (Quote?, Error?)->(Void)){
 
-    get(toEndpoint: FORISMATIC_URL, authHeader: false) { (data, error) -> (Void) in
-      guard let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: [])  as? [String: String] else {
-        print("data returned is not json, or not valid")
-        completion(nil, NetworkManagerAPIError.invalidJSON)
-        return
-      }
-      
-      if let json = json{
-        guard let quoteText = json[self.QUOTE_TEXT_KEY] ,
-          let quoteAuthor = json[self.QUOTE_AUTHOR_KEY]  else{
-            completion(nil, NetworkManagerAPIError.invalidJSON)
-            return
+    if let url = URL.init(string: FORISMATIC_URL) {
+      let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+        print(String.init(data: data!, encoding: .ascii) ?? "no data")
+        if let newQuote = try? JSONDecoder().decode(Quote.self, from: data!) {
+            completion(newQuote, nil)
         }
-        let quote = Quote(text: quoteText, author: quoteAuthor)
-        completion(quote, nil)
-        return
-      }
-      
+      })
+      task.resume()
     }
   }
   
